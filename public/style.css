@@ -1,0 +1,148 @@
+.e-card {
+  margin: 100px auto;
+  background: transparent;
+  box-shadow: 20px 20px 20px 2px rgba(0,0,0,0.45);
+  border: 2px solid black;
+  position: relative;
+  width: 720px;
+  height: 960px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.container.filled::after {
+    content: "✔";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: green;
+    font-weight: bold;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+    border: 2px solid green;
+  }
+.wave {
+  position: absolute;
+  width: 1440px;
+  height: 1300px;
+  opacity: 0.6;
+  left: 0;
+  bottom: 0;
+  margin-left: -50%;
+  margin-bottom: -70%;
+  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+}
+
+.wave:nth-child(2),
+.wave:nth-child(3) {
+  top: 210px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 3000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 55s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 28px; /* spacing between cards */
+    justify-items: center; /* center each card */
+}
+
+.container {
+    height: 60px;
+    width: 120px;
+  --folder-W: 120px;
+  --folder-H: 80px;
+  top: 50px;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding: 10px;
+  background: linear-gradient(135deg, #747572, #ed45ae);
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  height: calc(var(--folder-H) * 1.7);
+  position: relative;
+}
+.images{
+    height: 110px;
+    width: 100px;
+    position:absolute;
+    top: -20px;
+    left: calc(50% - 50px);
+    animation: float 2.5s infinite ease-in-out;
+    transition: transform var(--transition) ease;
+}
+
+.custom-file-upload {
+    position: absolute;
+    top: 80px;
+  font-size: 1.1em;
+  color: #ffffff;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background var(--transition) ease;
+  display: inline-block;
+  width: 100%;
+  padding: 10px 1px;
+  position: relative;
+}
+
+.custom-file-upload:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
